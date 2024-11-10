@@ -8,8 +8,7 @@ from telegram.ext.messagehandler import MessageHandler
 from telegram.ext.filters import Filters
 import qrcode
 
-updater = Updater("5941702486:AAE91jnCN4E2pPiY0q3tbdsuFR4xodIUEEo",
-                  use_context=True)
+#updater = Updater("Key_Code",use_context=True)
 
 def unknown_text(update: Update, context: CallbackContext):
     update.message.reply_text(
@@ -38,17 +37,14 @@ def start(update: Update, context: CallbackContext):
 
 
 
-#Deadline 16 january 6 pm
-#Impresentaion how we can magel gpu and c consumption hostly application
-#
+
 updater.dispatcher.add_handler(CommandHandler('start', start))
 updater.dispatcher.add_handler(MessageHandler(Filters.text, unknown))
 
 updater.dispatcher.add_handler(MessageHandler(
-    # Filters out unknown commands
     Filters.command, unknown))
 
-# Filters out unknown messages.
+
 updater.dispatcher.add_handler(MessageHandler(Filters.text, unknown_text))
 
 updater.start_polling()
